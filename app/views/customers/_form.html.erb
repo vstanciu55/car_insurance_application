@@ -1,0 +1,94 @@
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<style>
+  div.field {
+    text-align: center;
+  }
+  div.actions {
+    text-align: center;
+    padding-top: 2em;
+  }
+</style>
+  
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= select(:customer, :title, options_for_select([["Mr", "Mr"], ["Ms", "Ms"], ["Mrs", "Mrs"], ["Dr", "Dr"]])) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :forename %><br>
+    <%= f.text_field :forename, placeholder: "Bob" %>
+  </div>
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname, placeholder: "Johnson" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, placeholder: "something@mail.co.uk" , size: 30 %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :license_period %><br>
+    <%= f.number_field :license_period %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :street %><br>
+    <%= if @customer.address
+      text_field_tag 'street',@customer.address.street
+    else
+      text_field_tag 'street',nil, placeholder: "Example Street"
+    end %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= if @customer.address
+      text_field_tag 'city',@customer.address.city
+    else
+      text_field_tag 'city',nil, placeholder: "Aberystwyth"
+    end %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br>
+    <%= if @customer.address
+      text_field_tag 'county',@customer.address.county
+    else
+      text_field_tag 'county',nil, placeholder: "Ceridigion"
+    end %>
+  </div>
+  <div class="field">
+    <%= f.label :postcode %><br>
+    <%= if @customer.address
+      text_field_tag 'postcode',@customer.address.postcode
+    else
+      text_field_tag 'postcode',nil, placeholder: "SY00 0AB", size: 8
+    end %>
+  </div>
+  <div class="field">
+      <%= f.label :current_license_type %><br>
+          <%= select(:customer, :current_license_type, options_for_select([["Full", "Full"], ["Provisional", "Provisional"]])) %>
+    </div>
+  <div class="field">
+        <%= f.label :job_title %><br>
+        <%= collection_select( :customer, :job_title, Occupation.all, :name, :name, {}, { :multiple => false} ) %>
+  </div>
+   
+  <div class="actions">
+    <%= f.submit "Write vehicle details", :class => "button" %>
+  </div>
+<% end %>

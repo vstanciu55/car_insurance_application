@@ -1,0 +1,89 @@
+/* Global styles */
+* {
+  margin: 10;
+  font-family: "Calibri";
+}
+
+body {
+  background-color: #cedbef;
+}
+
+h1 {
+  padding-top: 1em;
+}
+
+/* Application layout classes */
+.header {
+  height: 5em;
+  background-color: #115859;
+  width: 100%;
+}
+
+.content {
+  margin-left: 1em;
+}
+
+.flash_notice {
+  color: #ccffaa;
+}
+
+.flash_error {
+  color: #ff8899;
+}
+
+.flash_message {
+  position: absolute;
+  top: 1.2em;
+  left: 0.5em;
+}
+
+.button {
+  width: 130px;
+  height: 50px;  
+}
+
+/* Striping the table using CSS3 magic */
+
+tbody tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #cccccc;
+}
+/* Error box and highlighting */
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}

@@ -1,0 +1,43 @@
+<%= form_for(@incident) do |f| %>
+  <% if @incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% @incident.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<style>
+  div.field {
+    text-align: center;
+  }
+  div.actions {
+    text-align: center;
+    padding-top: 2em;
+  }
+</style>
+  <div class="field">
+    <%= f.label :date_of_incident %><br>
+    <%= f.date_select :date_of_incident %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_incident %><br>
+    <%= f.text_field :type_of_incident %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Calculate Premium" , name: 'calculate_premium', :class => "button"  %>
+    <%= f.submit "Add another incident", :class => "button"   %>
+  </div>
+<% end %>
