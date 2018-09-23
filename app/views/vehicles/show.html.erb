@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Customer ID:</strong>
+  <%= @incident.customer_id %>
+</p>
+
+<p>
+  <strong>Vehicle registration:</strong>
+  <%= @vehicle.vehicle_registration %>
+</p>
+
+<p>
+  <strong>Estimated annual mileage:</strong>
+  <%= @vehicle.estimated_annual_mileage %>
+</p>
+
+<p>
+  <strong>Estimated vehicle value:</strong>
+  <%= @vehicle.estimated_vehicle_value %>
+</p>
+
+<p>
+  <strong>Typical parking location:</strong>
+  <%= @vehicle.typical_parking_location %>
+</p>
+
+<p>
+  <strong>Policy start date:</strong>
+  <%= @vehicle.policy_start_date %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

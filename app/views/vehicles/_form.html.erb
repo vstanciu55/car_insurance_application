@@ -1,0 +1,46 @@
+<%= form_for(@vehicle) do |f| %>
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<style>
+  div.field {
+    text-align: center;
+  }
+  div.actions {
+    text-align: center;
+    padding-top: 2em;
+  }
+</style>
+  <div class="field">
+    <%= f.label :vehicle_registration %><br>
+    <%= f.text_field :vehicle_registration %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_annual_mileage %><br>
+    <%= f.number_field :estimated_annual_mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_vehicle_value %><br>
+    <%= f.number_field :estimated_vehicle_value %>
+  </div>
+    
+  <div class="field">
+    <%= f.label :typical_parking_location %><br>
+    <%= select(:vehicle, :typical_parking_location, options_for_select([["In a garage", "In a garage"], ["On driveway", "On driveway"], ["On Street", "On Street"]])) %>
+  </div>
+  <div class="field">
+  <%= f.label :policy_start_date %><br>
+  <%= f.date_select :policy_start_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Write incidents details", :class => "button" %>
+  </div>
+<% end %>

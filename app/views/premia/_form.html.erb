@@ -1,0 +1,21 @@
+<%= form_for(@premium) do |f| %>
+  <% if @premium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@premium.errors.count, "error") %> prohibited this premium from being saved:</h2>
+
+      <ul>
+      <% @premium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

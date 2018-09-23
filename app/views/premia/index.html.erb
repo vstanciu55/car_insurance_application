@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Premia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Customer ID</th>
+      <th>Premium ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @premia.each do |premium| %>
+      <tr>
+        <td><%= premium.value %></td>
+        <td><%= premium.customer_id %></td>
+        <td><%= premium.id %></td>
+        <td><%= link_to 'Show', premium %></td>
+        <td><%= link_to 'Edit', edit_premium_path(premium) %></td>
+        <td><%= link_to 'Destroy', premium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Premium', new_premium_path %>
