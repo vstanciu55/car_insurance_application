@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  forename: MyString
+  surname: MyString
+  email: MyString
+  date_of_birth: 2018-07-07
+  license_period: 1
+
+two:
+  title: MyString
+  forename: MyString
+  surname: MyString
+  email: MyString
+  date_of_birth: 2018-07-07
+  license_period: 1

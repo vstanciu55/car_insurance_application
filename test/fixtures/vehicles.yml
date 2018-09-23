@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_registration: MyString
+  estimated_annual_mileage: 1
+  estimated_vehicle_value: 1
+  typical_parking_location: MyString
+  policy_start_date: 2018-07-07
+
+two:
+  vehicle_registration: MyString
+  estimated_annual_mileage: 1
+  estimated_vehicle_value: 1
+  typical_parking_location: MyString
+  policy_start_date: 2018-07-07
